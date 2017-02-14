@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AlytaloMobile2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AlytaloMobile2.dbo.Hallinta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Hallinta">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Huone" Type="nchar" MaxLength="10" />
+          <Property Name="Valot" Type="int" />
+          <Property Name="Lämpötila" Type="int" />
+          <Property Name="Pvm" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="AlytaloMobile2ModelStoreContainer">
+          <EntitySet Name="Hallinta" EntityType="Self.Hallinta" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Hallinta].[ID] AS [ID], 
+    [Hallinta].[Huone] AS [Huone], 
+    [Hallinta].[Valot] AS [Valot], 
+    [Hallinta].[Lämpötila] AS [Lämpötila], 
+    [Hallinta].[Pvm] AS [Pvm]
+    FROM [dbo].[Hallinta] AS [Hallinta]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AlytaloMobile2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Hallinta">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Huone" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Valot" Type="Int32" />
+          <Property Name="Lämpötila" Type="Int32" />
+          <Property Name="Pvm" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="AlytaloMobile2Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Hallintas" EntityType="Self.Hallinta" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AlytaloMobile2ModelStoreContainer" CdmEntityContainer="AlytaloMobile2Entities">
+          <EntitySetMapping Name="Hallintas">
+            <EntityTypeMapping TypeName="AlytaloMobile2Model.Hallinta">
+              <MappingFragment StoreEntitySet="Hallinta">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Huone" ColumnName="Huone" />
+                <ScalarProperty Name="Valot" ColumnName="Valot" />
+                <ScalarProperty Name="Lämpötila" ColumnName="Lämpötila" />
+                <ScalarProperty Name="Pvm" ColumnName="Pvm" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

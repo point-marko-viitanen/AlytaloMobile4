@@ -1,0 +1,51 @@
+﻿@model IEnumerable<AlytaloMobile4.Database.Hallinta>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Huone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Valot)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lämpötila)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pvm)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Huone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Valot)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lämpötila)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pvm)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

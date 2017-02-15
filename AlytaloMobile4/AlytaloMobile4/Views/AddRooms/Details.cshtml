@@ -1,0 +1,50 @@
+﻿@model AlytaloMobile4.Database.Hallinta
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Hallinta</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Huone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Huone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Valot)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Valot)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lämpötila)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lämpötila)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pvm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pvm)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Test";
+}
+@section scripts{
+    
+<script src="~/Scripts/Applications/Logic.js"></script>
+ 
+    <script>
+        $(function () {
+            testaus();
+        })
+    </script>
+    
+       }
+
+
+<h2>Test Json Interface</h2>
+
+
+
+<div class="btn-group">
+    <a class="btn btn-default" href="#">Valitse huone</a>
+    <a class="btn btn-default dropdown-toggle" aria-expanded="false" href="#" data-toggle="dropdown"><span class="caret"></span></a>
+    <ul class="dropdown-menu">
+        <li><a href="#">Huone 1</a></li>
+        <li><a href="#">Huone 2</a></li>
+        <li><a href="#">Something else here</a></li>
+        <li class="divider"></li>
+        <li><a href="#">Separated link</a></li>
+    </ul>
+</div>
+
+
+
+    <input id="Insertbutton" type="button" value="Tallenna" />
+    <input id="Lampotilabutton" type="button" value="button" />
+
+    <input id="Lampotila" type="text" placeholder="Lampotila" />
+    <input id="Valo" type="text" placeholder="Valo" />
+
+
+

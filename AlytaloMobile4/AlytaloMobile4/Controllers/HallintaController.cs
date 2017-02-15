@@ -10,6 +10,8 @@ using System.Web.Mvc;
 
 
 namespace AlytaloMobile4.Controllers
+
+
 {
     public class HallintaController : Controller
     {
@@ -71,32 +73,21 @@ namespace AlytaloMobile4.Controllers
 
             AlytaloMobile2Entities entities = new AlytaloMobile2Entities();
             try
-            { 
+            {
+
+                int huone = (from h in entities.Hallintas
+                                  where h.Huone == inputData.Huone
+                                  select h.ID).FirstOrDefault();
                 
-                // Haetaan ensin paikan id-numero koodin perusteella.
-                int locationId = (from l in entities.AssetLocations
-                                  where l.Code == inputData.LocationCode
-                                  select l.Id).FirstOrDefault();
+               // Hallinta newEntry = new Hallinta();
+                 //   newEntry.Huone = huone;
+                   // newEntry.Pvm = DateTime.Now;
 
-                // Haetaan laitteen id-numero koodin perusteella.
-                int assetId = (from a in entities.Assets
-                               where a.Code == inputData.AssetCode
-                               select a.Id).FirstOrDefault();
-
-                if ((locationId > 0) && (assetId > 0))
-                {
-                    // Tallennetaan uusi rivi aikaleiman kanssa kantaan
-                    Assetlocation1 newEntry = new Assetlocation1();
-                    newEntry.LocationId = locationId;
-                    newEntry.AssetId = assetId;
-                    newEntry.LastSeen = DateTime.Now;
-
-                    entities.Assetlocations1.Add(newEntry);
+                //    entities.Hallintas.Add(newEntry);
                     entities.SaveChanges();
 
                     success = true;
-                }
-            }
+                            }
             catch (Exception ex)
             {
                 error = error.GetType().Name + ": " + ex.Message;

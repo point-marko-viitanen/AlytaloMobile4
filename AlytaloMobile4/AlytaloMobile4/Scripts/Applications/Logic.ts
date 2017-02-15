@@ -7,8 +7,8 @@ class AddRoomsModel {
 }
 
 //function testaus() {
-    //$("#Insertbutton").click(function () {
-    //    alert("Toimii!");
+    $("#Insertbutton").click(function () {
+        alert("Toimii!");
 
         var huone: string = $("#Huone").val();
         

@@ -72,18 +72,18 @@ namespace AlytaloMobile4.Controllers
             string error = "";
 
             AlytaloMobile2Entities entities = new AlytaloMobile2Entities();
+            Hallinta NewEntry = new Database.Hallinta();
+            NewEntry.Huone = inputData.Huone;
             try
             {
 
-                int huone = (from h in entities.Hallintas
-                                  where h.Huone == inputData.Huone
-                                  select h.ID).FirstOrDefault();
+                //int huone = (from h in entities.Hallintas
+                //                  where h.Huone == inputData.Huone
+                //                  select h.ID).FirstOrDefault();
                 
-               // Hallinta newEntry = new Hallinta();
-                 //   newEntry.Huone = huone;
-                   // newEntry.Pvm = DateTime.Now;
+              
 
-                //    entities.Hallintas.Add(newEntry);
+                    entities.Hallintas.Add(NewEntry);
                     entities.SaveChanges();
 
                     success = true;

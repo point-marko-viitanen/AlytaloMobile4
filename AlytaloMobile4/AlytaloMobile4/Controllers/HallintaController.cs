@@ -75,12 +75,7 @@ namespace AlytaloMobile4.Controllers
             Hallinta NewEntry = new Database.Hallinta();
             NewEntry.Huone = inputData.Huone;
             try
-            {
-
-                //int huone = (from h in entities.Hallintas
-                //                  where h.Huone == inputData.Huone
-                //                  select h.ID).FirstOrDefault();
-                
+            {            
               
 
                     entities.Hallintas.Add(NewEntry);
@@ -101,13 +96,26 @@ namespace AlytaloMobile4.Controllers
             var result = new { success = success, error = error };
             return Json(result);
         }
-    
+
+
+
+        // Dropdownlista
+
+       //[HttpPost]
+        public ActionResult Dropdownlist()
+        {
+            AlytaloMobile2Entities Entity = new AlytaloMobile2Entities();
+            var GetRoomsList = Entity.Hallintas.ToList();
+            SelectList list = new SelectList(GetRoomsList, "ID", "Huone");
+            ViewBag.Roomlist = list;
+            return View();
+        }
 
 
 
 
 // GET: Hallinta/Edit/5
-public ActionResult Edit(int id)
+        public ActionResult Edit(int id)
         {
             return View();
         }

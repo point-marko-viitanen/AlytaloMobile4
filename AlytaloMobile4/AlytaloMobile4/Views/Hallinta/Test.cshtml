@@ -1,6 +1,7 @@
-﻿@model AlytaloMobile4.Models.AddRoomsModel
-@{
+﻿@{
     ViewBag.Title = "Test";
+
+    List <SelectListItem> l1 = new List<SelectListItem>();
 }
 @section scripts{
   
@@ -13,6 +14,7 @@
     </script>
     
        }
+
 
 
 <h2>Testi käyttis</h2>
@@ -35,5 +37,26 @@
         <input id="Valo" type="text" placeholder="Valo" />
         <input id="Lampotilabutton" type="button" value="Päivitä" />
     </fieldset>
+
+
+
+
+
+
+
+@Html.DropDownList("Huone",l1,"valitse huone.")
+
+
+
+@{
+    ViewBag.Title = "Dropdownlist";
+
+
+<h2>Dropdownlist</h2>
+
+@Html.DropDownList("Roomlist1", ViewBag.Roomlist as SelectList, "Valitse huone")
+}
+
+
 
 

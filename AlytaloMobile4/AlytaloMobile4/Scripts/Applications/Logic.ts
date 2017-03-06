@@ -24,6 +24,17 @@ $("#Insertbutton").click(function () {
         success: function (data) {
             if (data.success == true) {
                 alert("Uusi huone asetettu.");
+// Päivitys testi
+                $.ajax("/Hallinta/AddRooms").done(function (data) {
+                    var huonelista = "";
+                    for (var i = 0; i < data.lenght + 1; i++) {
+                        huonelista += "<tr><td>" + data[i].HuoneNimi + "</td></tr> ";
+                        $("#GetRoomList").html(huonelista);
+                    }
+                        $("GetRoomList").css("display", "block");
+
+                    });
+// Päivitys osio
             }
             else {
                 alert("Ei onnnistunut: " + data.error);

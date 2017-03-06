@@ -2,7 +2,39 @@
 @{
     ViewBag.Title = "Dropdownlist";
 }
+@section scripts{
 
+  
+<script src="~/Scripts/Applications/Logic.js"></script>
+
+    <script>
+        $(function () {
+            Initroom();
+        })
+    </script>
+
+                }
 <h2>Dropdownlist</h2>
 
-@Html.DropDownList("Roomlist", ViewBag.Roomlist as SelectList, "Valitse huone")
+
+
+
+
+
+
+
+<h2>Testi käyttis</h2>
+<fieldset>
+    <input id="Insertbutton" type="button" value="Tallenna huone" />
+    <input id="Huone" type="text" />
+</fieldset>
+
+<fieldset>
+    @Html.DropDownList("Roomlist", ViewBag.Roomlist as SelectList, "Valitse huone")
+    
+
+    <input id="Lampotila" type="text" placeholder="Lampotila" /> 
+    <input id="Valo" type="text" placeholder="Valo" />
+    <input id="Lampotilabutton" type="button" value="Päivitä" />
+
+</fieldset>

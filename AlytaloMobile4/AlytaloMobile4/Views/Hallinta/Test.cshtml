@@ -3,6 +3,7 @@
 
     List <SelectListItem> l1 = new List<SelectListItem>();
 }
+
 @section scripts{
   
 <script src="~/Scripts/Applications/Logic.js"></script>
@@ -47,15 +48,6 @@
 @Html.DropDownList("Huone",l1,"valitse huone.")
 
 
-
-@{
-    ViewBag.Title = "Dropdownlist";
-
-
-<h2>Dropdownlist</h2>
-
-@Html.DropDownList("Roomlist1", ViewBag.Roomlist as SelectList, "Valitse huone")
-}
 
 
 

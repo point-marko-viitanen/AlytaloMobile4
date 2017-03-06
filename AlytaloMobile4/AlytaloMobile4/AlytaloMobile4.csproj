@@ -234,12 +234,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HallintaModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Dropdown\DropdownController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddRoomsModel.cs" />
+    <Compile Include="Models\AdjustLightsModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -328,11 +328,6 @@
     <Content Include="Views\AddRooms\Details.cshtml" />
     <Content Include="Views\AddRooms\Edit.cshtml" />
     <Content Include="Views\AddRooms\Index.cshtml" />
-    <Content Include="Views\Dropdown\Create.cshtml" />
-    <Content Include="Views\Dropdown\Delete.cshtml" />
-    <Content Include="Views\Dropdown\Details.cshtml" />
-    <Content Include="Views\Dropdown\Edit.cshtml" />
-    <Content Include="Views\Dropdown\Index.cshtml" />
     <Content Include="Views\Hallinta\Dropdownlist.cshtml" />
   </ItemGroup>
   <ItemGroup>

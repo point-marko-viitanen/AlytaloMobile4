@@ -87,6 +87,9 @@ namespace AlytaloMobile4.Controllers
             {
                 error = error.GetType().Name + ": " + ex.Message;
             }
+
+
+
             finally
             {
                 entities.Dispose();
@@ -101,20 +104,74 @@ namespace AlytaloMobile4.Controllers
 
         // Dropdownlista
 
-       //[HttpPost]
+      // [HttpPost]
         public ActionResult Dropdownlist()
         {
             AlytaloMobile2Entities Entity = new AlytaloMobile2Entities();
             var GetRoomsList = Entity.Hallintas.ToList();
             SelectList list = new SelectList(GetRoomsList, "ID", "Huone");
             ViewBag.Roomlist = list;
-            return View();
+
+            
+                return View();
+        }
+
+
+
+        /*     public JsonResult Dropdownlist()
+        {
+            AlytaloMobile2Entities Entity = new AlytaloMobile2Entities();
+            List<Hallinta> model = Entity.Hallintas.ToList();
+            Entity.Dispose();
+            return Json(model, JsonRequestBehavior.AllowGet);
+            
+        }
+*/
+
+        // Lights
+
+        [HttpPost]
+        public JsonResult Lights()
+        {
+            string json = Request.InputStream.ReadToEnd();
+            AdjustLightsModel inputData =
+               JsonConvert.DeserializeObject<AdjustLightsModel>(json);
+
+            bool success = false;
+            string error = "";
+
+            AlytaloMobile2Entities entities = new AlytaloMobile2Entities();
+            Hallinta NewEntry = new Database.Hallinta();
+            NewEntry.Huone = inputData.Lights;
+            try
+            {
+
+
+                entities.Hallintas.Add(NewEntry);
+                entities.SaveChanges();
+
+                success = true;
+            }
+            catch (Exception ex)
+            {
+                error = error.GetType().Name + ": " + ex.Message;
+            }
+
+
+
+            finally
+            {
+                entities.Dispose();
+            }
+            //Palautetaan JSON-muotoinen tulos kutsujalle
+            var result = new { success = success, error = error };
+            return Json(result);
         }
 
 
 
 
-// GET: Hallinta/Edit/5
+        // GET: Hallinta/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
